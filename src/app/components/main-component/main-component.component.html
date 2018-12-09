@@ -1,0 +1,8 @@
+<div class="col-md-9 col-sm-9 col-xs-9">
+        <app-home *ngIf="tabToDisplay === 'home'"></app-home>
+        <app-library *ngIf="tabToDisplay === 'library'" ></app-library>
+        <app-radio *ngIf="tabToDisplay === 'radio'"></app-radio>
+        <app-about *ngIf="tabToDisplay === 'about'"></app-about>
+        <app-pages *ngIf="tabToDisplay === 'pages'"></app-pages>
+        
+</div>
