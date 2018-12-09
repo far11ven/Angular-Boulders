@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,18 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class AppComponent {
   //title = 'app';
 
-  selectedTab = 'library';
+  isAuthenticated = false;
+
+  onValidate(validationValue: boolean) {
+    this.isAuthenticated = validationValue;
+  }
+
+  tabToSelect = 'home';
   @Output() tabSelection = new EventEmitter<string>();
 
   onNavigate(tab: string){
    console.log('in OnNavigate' + tab);
-    this.selectedTab = tab;
-    this.tabSelection.emit(this.selectedTab);
+    this.tabToSelect = tab;
+    this.tabSelection.emit(this.tabToSelect);
   }
 }

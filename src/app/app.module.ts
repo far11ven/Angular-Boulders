@@ -13,10 +13,12 @@ import { RadioComponent } from './components/main-component/radio/radio.componen
 import { PagesComponent } from './components/main-component/pages/pages.component';
 import { PageComponent } from './components/main-component/pages/page/page.component';
 import { CarouselComponent } from './components/main-component/home/carousel/carousel.component';
+import { LoginComponent } from './login/login.component';
 
 
 const appRoutes : Routes =[
-  {path: '', component: HomeComponent},
+  {path: '', component: LoginComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'library', component: LibraryComponent},
   {path: 'radio', component: RadioComponent},
   {path: 'about', component: AboutComponent},
@@ -38,7 +40,8 @@ const appRoutes : Routes =[
     RadioComponent,
     CarouselComponent,
     PagesComponent,
-    PageComponent
+    PageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
