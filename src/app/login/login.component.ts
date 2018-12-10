@@ -1,5 +1,9 @@
 import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import {UserService} from '../../shared/services/user.service';
+import { map } from 'rxjs/operators';
+import {User} from "../../shared/models/user.model";
 
 @Component({
   selector: 'app-login',
@@ -7,20 +11,27 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  userName : String;
+  password: String;
+
+  response: any;
 
   @ViewChild('usernameInput') usernameInputRef: ElementRef;
   @ViewChild('passwordInput') passwordInputRef: ElementRef;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private http: HttpClient, private _UserService : UserService) { 
 
     console.log("Inside Constructor ==: " + localStorage.getItem('isAuthenticated'));
     
     if(localStorage.getItem('isAuthenticated') != 'true'){
       this.router.navigate(['/']);
+    } else {
+      this.router.navigate(['/home']);
     }
   }
 
   ngOnInit() {
+
   }
 
   @Output() userAuthentication = new EventEmitter<boolean>();
@@ -29,10 +40,20 @@ export class LoginComponent implements OnInit {
     const username = this.usernameInputRef.nativeElement.value;
     const password = this.passwordInputRef.nativeElement.value;
 
-    console.log(username);
-    console.log(password);
+    let obs =  this._UserService.getUser(username).pipe(map((userdetails) => {
+      this.password = userdetails.result[0].password;
+      this.userName = userdetails.result[0].email;
+    }));
 
-    if(username === "kb@c.com"){
+    obs.subscribe((response) =>{
+
+      this.response = response;
+      console.log(" email = " +  this.userName);
+      console.log(" pass = " + this.password);
+
+    })
+
+    if(this.userName === username && this.password === password){
 
     this.userAuthentication.emit(true);
     this.router.navigate(['/home']);

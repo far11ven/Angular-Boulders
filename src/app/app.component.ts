@@ -14,9 +14,9 @@ export class AppComponent {
   @Output() tabSelection = new EventEmitter<string>();
   constructor(private router: Router) { 
     console.log("Inside Constructor ==: " + localStorage.getItem('isAuthenticated') == 'true');
-    
+
     if(localStorage.getItem('isAuthenticated') == 'true'){
-      this.router.navigate(['/home']);
+      
     }
   }
 

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -14,6 +16,8 @@ import { PagesComponent } from './components/main-component/pages/pages.componen
 import { PageComponent } from './components/main-component/pages/page/page.component';
 import { CarouselComponent } from './components/main-component/home/carousel/carousel.component';
 import { LoginComponent } from './login/login.component';
+import { UserService } from '../shared/services/user.service';
+
 
 
 const appRoutes : Routes =[
@@ -45,9 +49,11 @@ const appRoutes : Routes =[
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
