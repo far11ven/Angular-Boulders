@@ -11,7 +11,14 @@ export class LoginComponent implements OnInit {
   @ViewChild('usernameInput') usernameInputRef: ElementRef;
   @ViewChild('passwordInput') passwordInputRef: ElementRef;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+
+    console.log("Inside Constructor ==: " + localStorage.getItem('isAuthenticated'));
+    
+    if(localStorage.getItem('isAuthenticated') != 'true'){
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit() {
   }

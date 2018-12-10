@@ -11,6 +11,11 @@ export class NavBarComponent implements OnInit {
 
   onSelect(selectedTab:string){
     this.tabSelection.emit(selectedTab);
+
+    if(selectedTab == 'logout'){
+
+      localStorage.removeItem('isAuthenticated');
+    }
     console.log('in onSelect : ' + selectedTab);
 
   }
