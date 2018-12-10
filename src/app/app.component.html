@@ -1,5 +1,4 @@
 <div class="container">
-            <app-login *ngIf="isAuthenticated !==  true" (userAuthentication) = "onValidate($event)"></app-login>
-            <app-nav-bar *ngIf="isAuthenticated === true" (tabSelection) ="onNavigate($event)"></app-nav-bar>  
-            <app-main-component *ngIf="isAuthenticated === true" (tabSelection) ="onNavigate($event)"></app-main-component>  
+            <app-login *ngIf="getAuthenticationFlag() !=  'true'" (userAuthentication) = "onValidate($event)"></app-login>
+            <app-nav-bar *ngIf="getAuthenticationFlag() == 'true'" (tabSelection) ="onNavigate($event)"></app-nav-bar>  
 </div>

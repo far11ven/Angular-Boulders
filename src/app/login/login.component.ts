@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,12 @@ export class LoginComponent implements OnInit {
   @ViewChild('usernameInput') usernameInputRef: ElementRef;
   @ViewChild('passwordInput') passwordInputRef: ElementRef;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   @Output() userAuthentication = new EventEmitter<boolean>();
-
 
   validateUserAuthentication(){
     const username = this.usernameInputRef.nativeElement.value;
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     if(username === "kb@c.com"){
 
     this.userAuthentication.emit(true);
+    this.router.navigate(['/home']);
     }
 
   }
