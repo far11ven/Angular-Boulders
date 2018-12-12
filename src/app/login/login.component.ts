@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {UserService} from '../../shared/services/user.service';
 import { map } from 'rxjs/operators';
+import CryptoJS from 'crypto-js';
 import {User} from "../../shared/models/user.model";
 
 @Component({
@@ -39,25 +40,21 @@ export class LoginComponent implements OnInit {
   validateUserAuthentication(){
     const username = this.usernameInputRef.nativeElement.value;
     const password = this.passwordInputRef.nativeElement.value;
+    const passswordHash =  CryptoJS.SHA256(password);
 
-    let obs =  this._UserService.getUser(username).pipe(map((userdetails) => {
-      this.password = userdetails.result[0].password;
-      this.userName = userdetails.result[0].email;
-    }));
-
-    obs.subscribe((response) =>{
+    this._UserService.getUser(username).pipe(map((userdetails) => {
+       this.password = userdetails.result[0].password;
+       this.userName = userdetails.result[0].email;
+      })).subscribe((response) =>{
 
       this.response = response;
       console.log(" email = " +  this.userName);
-      console.log(" pass = " + this.password);
+
+      if(this.userName === username && this.password.toString() === passswordHash.toString()){
+        this.userAuthentication.emit(true);
+        this.router.navigate(['/home']);        }
 
     })
-
-    if(this.userName === username && this.password === password){
-
-    this.userAuthentication.emit(true);
-    this.router.navigate(['/home']);
-    }
 
   }
 
