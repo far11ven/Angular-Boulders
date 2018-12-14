@@ -1,20 +1,20 @@
-    .search-btn-outline:hover{
-        color: #495057;
-        background-color: rgb(245, 230, 240);
-        border-color: #000000;
-        outline: 0;
-        box-shadow: 0 0 0 0.15rem rgba(255,46,129,.25);
-    }
+.search-btn-outline:hover{
+    color: #495057;
+    background-color: rgb(245, 230, 240);
+    border-color: #000000;
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem rgba(255,46,129,.25);
+}
 
-    .search-btn-outline:focus{
-        color: #495057;
-        background-color: rgb(245, 230, 240);
-        border-color: #000000;
-        outline: 0;
-        box-shadow: 0 0 0 0.15rem rgba(255,46,129,.25);
-    }
+.search-btn-outline:focus{
+    color: #495057;
+    background-color: rgb(245, 230, 240);
+    border-color: #000000;
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem rgba(255,46,129,.25);
+}
     
-    a,
+a,
 a:hover,
 a:focus {
     color: inherit;
@@ -169,25 +169,45 @@ ul.CTAs a {
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -350px;
+        width: 30%;
     }
-    #sidebar.active {
-        margin-left: 0;
+
+    #content {
+        width: 70%;
     }
+
+    #content.active {
+        width: 100%
+    }
+   
+}
+
+@media (min-width: 768px) {
+    .top-nav{
+     display: none;
+     }
+}
+
+@media (max-width: 618px) {
+
+    #sidebar {
+        width: 190px;
+    }
+
     #content {
         width: 100%;
     }
     #content.active {
-        width: calc(100% - 350px);
+        width: 100%
     }
-    #sidebarCollapse span {
+
+    #sidebar {
         display: none;
     }
 
-}
-
-@media (min-width: 768px) {
-.top-nav{
-    display: none;
-}
+    button#sidebarCollapse{
+        display:none;
+    
+    }
+    
 }

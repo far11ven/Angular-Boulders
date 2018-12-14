@@ -94,6 +94,12 @@
             });
 
 
+
+$('#tab li>a').on('click', function () {
+    $('#tab ul li').siblings('li').removeClass('active');
+    $('#tab ul li').addClass('active');
+});
+
         });
     </script>
 

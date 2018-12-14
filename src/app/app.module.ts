@@ -6,10 +6,9 @@ import { Routes, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { MainComponentComponent } from './components/main-component/main-component.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AboutComponent } from './components/main-component/about/about.component';
 import { HomeComponent } from './components/main-component/home/home.component';
-import { RadioComponent } from './components/main-component/radio/radio.component';
 import { PagesComponent } from './components/main-component/pages/pages.component';
 import { PageComponent } from './components/main-component/pages/page/page.component';
 import { CarouselComponent } from './components/main-component/home/carousel/carousel.component';
@@ -17,13 +16,14 @@ import { LoginComponent } from './login/login.component';
 import { UserService } from '../shared/services/user.service';
 import { MembersComponent } from './components/main-component/members/members.component';
 import { MemberItemComponent } from './components/main-component/members/member-item/member-item.component';
+import { UserprofileComponent } from './components/main-component/userprofile/userprofile.component';
 
 
 
 const appRoutes : Routes =[
   {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'radio', component: RadioComponent},
+  {path: 'profile', component: UserprofileComponent},
   {path: 'about', component: AboutComponent},
   {path: 'pages', component: PagesComponent, children:  [ 
     {path: ':id', component: PageComponent}
@@ -38,13 +38,14 @@ const appRoutes : Routes =[
     MainComponentComponent,
     HomeComponent,
     AboutComponent,
-    RadioComponent,
+    UserprofileComponent,
     CarouselComponent,
     PagesComponent,
     PageComponent,
     LoginComponent,
     MembersComponent,
-    MemberItemComponent
+    MemberItemComponent,
+    
   ],
   imports: [
     BrowserModule,
