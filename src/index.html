@@ -31,6 +31,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script type="text/javascript">
+        function showPassword() {
+          var x = document.getElementById("inputPassword");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+    </script>
+
+    <script type="text/javascript">
 
         $('.carousel-item carousel-x').each(function () {
             var next = $(this).next();
@@ -92,13 +103,6 @@
                 $(tk).addClass('active');
 
             });
-
-
-
-$('#tab li>a').on('click', function () {
-    $('#tab ul li').siblings('li').removeClass('active');
-    $('#tab ul li').addClass('active');
-});
 
         });
     </script>

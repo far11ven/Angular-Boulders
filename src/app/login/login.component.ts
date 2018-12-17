@@ -45,12 +45,13 @@ export class LoginComponent implements OnInit {
     this._UserService.getUser(username).pipe(map((userdetails) => {
        this.password = userdetails.result[0].password;
        this.userName = userdetails.result[0].email;
+
        var orgName = userdetails.result[0].orgName;
 
       console.log(" email = " +  this.userName);
-
+      localStorage.setItem('_id', userdetails.result[0]._id);
       localStorage.setItem('orgName', orgName);
-      console.log(" orgName = " +  localStorage.getItem('orgName'));
+
       })).subscribe((response) =>{
 
       if(this.userName === username && this.password.toString() === passswordHash.toString()){

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {Member} from "../../../../../shared/models/member.model";
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-member-item',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MemberItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() currMember: Member;
+  
+  constructor(private _DomSanitizationService: DomSanitizer ) {}
 
   ngOnInit() {
+    this.currMember.memberImage = "data:image/png;base64,"  + this.currMember.memberImage;
+
   }
 
 }

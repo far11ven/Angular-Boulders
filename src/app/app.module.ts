@@ -17,6 +17,7 @@ import { UserService } from '../shared/services/user.service';
 import { MembersComponent } from './components/main-component/members/members.component';
 import { MemberItemComponent } from './components/main-component/members/member-item/member-item.component';
 import { UserprofileComponent } from './components/main-component/userprofile/userprofile.component';
+import { DueMemberItemComponent } from './components/main-component/members/due-member-item/due-member-item.component';
 
 
 
@@ -45,6 +46,7 @@ const appRoutes : Routes =[
     LoginComponent,
     MembersComponent,
     MemberItemComponent,
+    DueMemberItemComponent,
     
   ],
   imports: [

@@ -3,13 +3,13 @@ body {
   
 }
 
-#exTab2 .tab-content {
+#tab .tab-content {
   color : white;
   background-color: #428bca;
   padding : 5px 15px;
 }
 
-#exTab2 h3 {
+#tab h3 {
   color : white;
   background-color: #428bca;
   padding : 5px 15px;
@@ -19,11 +19,11 @@ li{
   width: 40%;
 }
 
-li:hover{
+li>a:hover{
   border-bottom: 6px solid lightgreen;
 }
 
-li.active{
+li>a.active{
   color:purple;
   width: 40%; color: #6c757d; border-bottom: 6px solid lightgreen;
   background-color: lightgrey;
