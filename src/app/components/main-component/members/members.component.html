@@ -1,19 +1,30 @@
-<ul id="tab" class="nav nav-tabs">
-	<li class="active btn">
-		<a class="active" href="#1" data-toggle="tab">All Members</a>
-	</li>
-	<hr>
-	<li class="btn">
-		<a href="#2" data-toggle="tab">DUE Members</a>
-	</li>
-</ul>
-<div class="tab-content">
+<div class="container">
+		<button type="button" id="addNewMember" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24"
+				 enable-background="new 0 0 24 24" width="20px" height="20px">
+					<g>
+						<path d="M24,3c0-0.6-0.4-1-1-1H1C0.4,2,0,2.4,0,3v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V3z" fill="#FFFFFF" />
+						<path d="M24,11c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V11z" fill="#FFFFFF" />
+						<path d="M24,19c0-0.6-0.4-1-1-1H1c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V19z" fill="#FFFFFF" />
+					</g>
+				</svg>
+			</button>
+	<ul id="tab" class="nav nav-tabs">
+		<li class="active btn">
+			<a class="active" href="#1" data-toggle="tab">All Members</a>
+		</li>
+		<li class="btn">
+			<a href="#2" data-toggle="tab">DUE Members</a>
+		</li>
+	</ul>
+	<div class="tab-content">
 
-	<div class="tab-pane active" id="1">
-		<app-member-item id="mytab1" *ngFor="let item of membersArray" [currMember]="item"></app-member-item>
-	</div>
-	<div class="tab-pane" id="2">
-		<app-due-member-item id="mytab2" *ngFor="let item of membersArray" [currMember]="item"></app-due-member-item>
+		<div class="tab-pane active" id="1">
+			<app-member-item id="mytab1" *ngFor="let item of membersArray" [currMember]="item"></app-member-item>
+		</div>
+		<div class="tab-pane" id="2">
+			<app-due-member-item id="mytab2" *ngFor="let item of membersArray" [currMember]="item"></app-due-member-item>
+		</div>
 	</div>
 </div>
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Member } from "../../../../../shared/models/member.model";
-import { DomSanitizer } from '@angular/platform-browser';
-const CryptoJS = require('crypto-js');
+import * as Images from "../../../../../assets/base64Images.json";
+
 
 @Component({
   selector: 'app-due-member-item',
@@ -11,15 +11,16 @@ const CryptoJS = require('crypto-js');
 export class DueMemberItemComponent implements OnInit {
 
   @Input() currMember: Member;
+  memberImage : String;
   isSettled: boolean = true;
 
-  constructor(private _DomSanitizationService: DomSanitizer) { }
+  constructor() { }
 
   ngOnInit() {
-    if (this.currMember.memberImage != 'undefined') {
-      this.currMember.memberImage = "data:image/png;base64," + this.currMember.memberImage;
+    if (this.currMember.memberImage != undefined) {
+      this.memberImage = "data:image/png;base64," + this.currMember.memberImage;
     } else {
-
+      this.memberImage = "data:image/png;base64," + (<any>Images).memberAvatar;
     }
 
     let currDate = new Date();
@@ -31,15 +32,6 @@ export class DueMemberItemComponent implements OnInit {
     }
   }
 
-  encrypt() {
 
-    const imgPath = require("../../../../../assets/ic_member.png");
-
-    // PROCESS
-    var imgSrcData = window.btoa(imgPath);
-    const encrypted = CryptoJS.enc.Base64.stringify(imgSrcData);
-    console.log()
-    return encrypted;
-  }
 
 }

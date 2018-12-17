@@ -15,6 +15,8 @@ export class NavBarComponent implements OnInit {
     if(selectedTab == 'logout'){
 
       localStorage.removeItem('isAuthenticated');
+      localStorage.removeItem('_id');
+      localStorage.removeItem('orgName');
     }
     console.log('in onSelect : ' + selectedTab);
 

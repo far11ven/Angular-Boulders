@@ -1,6 +1,6 @@
 <br>
-<div  *ngIf="!isSettled"  class="container col-md-6 rounded border border-success">
-  <div class="col-md-8">
+<div  *ngIf="!isSettled" class="container-fluid col-md-8 rounded border border-success">
+  <div class="col-md-4">
     <span>
       <span id="firstname">{{ currMember.firstName }}</span>
       <span id="lastname"> {{ currMember.lastName }}</span>
@@ -8,12 +8,12 @@
     <br>
     <span id="cycleend_date">{{ currMember.cycleEndDate }}</span>
     <br>
-    <span id="memberstatus"></span>
+    <span id="memberstatus"> SETTLED : {{isSettled}} </span>
 
   </div>
 
-  <div class="col-md-4">
-    <img id="memberAvatar" class="rounded-circle" [src]="_DomSanitizationService.bypassSecurityTrustResourceUrl(currMember.memberImage)" style="height:80px; width:80px" alt="currMember._id image"
+  <div class="col-md-3">
+    <img id="memberAvatar" class="rounded-circle" [src]="memberImage" style="height:80px; width:80px" alt="currMember._id image"
     />
   </div>
 </div>
