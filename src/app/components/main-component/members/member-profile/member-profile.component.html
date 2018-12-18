@@ -1,0 +1,19 @@
+<div class="memberItem container-fluid rounded border border-success">
+
+    <div class="col-md-3">
+        <img id="memberAvatar" class="rounded-circle" [src]="memberImage" style="height:160px; width:160px" alt="currMember._id image"
+        />
+      </div>
+
+    <div class="col-md-4">
+      <span>
+        <span id="firstname">{{ sharedMember.firstName }}</span>
+        <span id="lastname"> {{ sharedMember.lastName }}</span>
+      </span>
+      <br>
+      <span id="cycleend_date">{{ sharedMember.cycleEndDate }}</span>
+      <br>
+      <span id="memberstatus"> <strong>SETTLED</strong> : {{isSettled}} </span>
+    </div>
+   
+  </div>

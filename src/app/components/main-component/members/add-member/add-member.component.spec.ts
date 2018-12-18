@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DueMemberItemComponent } from './due-member-item.component';
+import { AddMemberComponent } from './add-member.component';
 
-describe('DueMemberItemComponent', () => {
-  let component: DueMemberItemComponent;
-  let fixture: ComponentFixture<DueMemberItemComponent>;
+describe('AddMemberComponent', () => {
+  let component: AddMemberComponent;
+  let fixture: ComponentFixture<AddMemberComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DueMemberItemComponent ]
+      declarations: [ AddMemberComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DueMemberItemComponent);
+    fixture = TestBed.createComponent(AddMemberComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -13,11 +13,15 @@ import { PagesComponent } from './components/main-component/pages/pages.componen
 import { PageComponent } from './components/main-component/pages/page/page.component';
 import { CarouselComponent } from './components/main-component/home/carousel/carousel.component';
 import { LoginComponent } from './login/login.component';
-import { UserService } from '../shared/services/user.service';
 import { MembersComponent } from './components/main-component/members/members.component';
 import { MemberItemComponent } from './components/main-component/members/member-item/member-item.component';
 import { UserprofileComponent } from './components/main-component/userprofile/userprofile.component';
-import { DueMemberItemComponent } from './components/main-component/members/due-member-item/due-member-item.component';
+import { MemberProfileComponent } from './components/main-component/members/member-profile/member-profile.component';
+
+import { UserService } from '../shared/services/user.service';
+import { MemberService } from '../shared/services/member.service';
+import { CurrentMemberService } from '../shared/services/current-member.service';
+import { AddMemberComponent } from './components/main-component/members/add-member/add-member.component';
 
 
 
@@ -26,6 +30,8 @@ const appRoutes : Routes =[
   {path: 'home', component: HomeComponent},
   {path: 'profile', component: UserprofileComponent},
   {path: 'about', component: AboutComponent},
+  {path: 'member/addmember', component: AddMemberComponent},
+  {path: 'member-profile/:id', component: MemberProfileComponent},
   {path: 'pages', component: PagesComponent, children:  [ 
     {path: ':id', component: PageComponent}
   ]
@@ -46,8 +52,8 @@ const appRoutes : Routes =[
     LoginComponent,
     MembersComponent,
     MemberItemComponent,
-    DueMemberItemComponent,
-    
+    MemberProfileComponent,
+    AddMemberComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +61,7 @@ const appRoutes : Routes =[
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService],
+  providers: [UserService, MemberService, CurrentMemberService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

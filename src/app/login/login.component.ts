@@ -20,14 +20,14 @@ export class LoginComponent implements OnInit {
   @ViewChild('usernameInput') usernameInputRef: ElementRef;
   @ViewChild('passwordInput') passwordInputRef: ElementRef;
 
-  constructor(private router: Router, private http: HttpClient, private _UserService : UserService) { 
+  constructor(private _router: Router, private http: HttpClient, private _UserService : UserService) { 
 
     console.log("Inside Constructor ==: " + localStorage.getItem('isAuthenticated'));
     
     if(localStorage.getItem('isAuthenticated') != 'true'){
-      this.router.navigate(['/']);
+      this._router.navigate(['/']);
     } else {
-      this.router.navigate(['/home']);
+      this._router.navigate(['/home']);
     }
   }
 
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
 
       if(this.userName === username && this.password.toString() === passswordHash.toString()){
         this.userAuthentication.emit(true);
-        this.router.navigate(['/home']);        }
+        this._router.navigate(['/home']);        }
 
     })
 

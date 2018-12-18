@@ -15,7 +15,7 @@ export class MembersComponent implements OnInit {
 
   membersArray : Member[];
 
-  constructor(private router: Router, private http: HttpClient, private _MemberService : MemberService) {  }
+  constructor(private _router: Router, private http: HttpClient, private _MemberService : MemberService) {  }
 
   ngOnInit() {
 
@@ -38,6 +38,12 @@ export class MembersComponent implements OnInit {
 
     })
 
+  }
+
+  addNewMember(){
+
+    this._router.navigate(['/member/addmember']);
+    
   }
 
 }
