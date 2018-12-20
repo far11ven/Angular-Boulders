@@ -14,13 +14,14 @@ import {User} from "../../shared/models/user.model";
 export class LoginComponent implements OnInit {
   userName : String;
   password: String;
+  @Output() userAuthentication = new EventEmitter<boolean>();
 
   response: any;
 
   @ViewChild('usernameInput') usernameInputRef: ElementRef;
   @ViewChild('passwordInput') passwordInputRef: ElementRef;
 
-  constructor(private _router: Router, private http: HttpClient, private _UserService : UserService) { 
+  constructor(private _router: Router, private _UserService : UserService) { 
 
     console.log("Inside Constructor ==: " + localStorage.getItem('isAuthenticated'));
     
@@ -34,8 +35,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
   }
-
-  @Output() userAuthentication = new EventEmitter<boolean>();
 
   validateUserAuthentication(){
     const username = this.usernameInputRef.nativeElement.value;

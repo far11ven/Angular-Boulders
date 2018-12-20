@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MainComponentComponent } from './components/main-component/main-component.component';
@@ -25,16 +26,17 @@ import { AddMemberComponent } from './components/main-component/members/add-memb
 
 
 
-const appRoutes : Routes =[
-  {path: '', component: LoginComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'profile', component: UserprofileComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'member/addmember', component: AddMemberComponent},
-  {path: 'member-profile/:id', component: MemberProfileComponent},
-  {path: 'pages', component: PagesComponent, children:  [ 
-    {path: ':id', component: PageComponent}
-  ]
+const appRoutes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'profile', component: UserprofileComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'member/addmember', component: AddMemberComponent },
+  { path: 'member-profile/:id', component: MemberProfileComponent },
+  {
+    path: 'pages', component: PagesComponent, children: [
+      { path: ':id', component: PageComponent }
+    ]
   }
 ];
 
@@ -59,6 +61,7 @@ const appRoutes : Routes =[
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [UserService, MemberService, CurrentMemberService],

@@ -12,27 +12,26 @@ export class AppComponent {
   isAuthenticated = false;
   tabToSelect = 'home';
   @Output() tabSelection = new EventEmitter<string>();
-  constructor(private router: Router) { 
-    console.log("Inside Constructor ==: " + localStorage.getItem('isAuthenticated') == 'true');
+  constructor(private router: Router) {
+    console.log('Inside Constructor == : ' + localStorage.getItem('isAuthenticated') === 'true');
 
-    if(localStorage.getItem('isAuthenticated') == 'true'){
-      
+    if (localStorage.getItem('isAuthenticated') === 'true') {
     }
   }
 
   onValidate(validationValue: boolean) {
     this.isAuthenticated = validationValue;
-    localStorage.setItem('isAuthenticated', this.isAuthenticated ? "true" : "false");
+    localStorage.setItem('isAuthenticated', this.isAuthenticated ? 'true' : 'false');
     console.log(localStorage.getItem('isAuthenticated'));
   }
 
-  onNavigate(tab: string){
+  onNavigate(tab: string) {
     console.log('in OnNavigate' + tab);
     this.tabToSelect = tab;
     this.tabSelection.emit(this.tabToSelect);
   }
 
-  getAuthenticationFlag(){
+  getAuthenticationFlag() {
     console.log(localStorage.getItem('isAuthenticated'));
     return localStorage.getItem('isAuthenticated');
 

@@ -1,6 +1,8 @@
+<div #message class="col-md-8 border border-success" style="display:none;">
+  <span>Member Added Successfully!! <img src="assets/bo_tick.png" height="60px" width="60px"/></span>
+</div>
 <div class="container col-md-8">
   <form>
-
     <div class="form-group">
       <img id="memberAvatar" src="assets/ic_member.png" height="80px" width="80px">
     </div>
@@ -8,37 +10,37 @@
     <div class=" form-inline form-group">
       <div class="mr-4">
         <label for="firstName" class="mb-2">First Name</label>
-        <input type="text" class="form-control" id="firstName">
+        <input #firstnameInput type="text" class="form-control" id="firstName">
       </div>
 
       <div>
         <label for="lastName" class="mb-2">Last Name</label>
-        <input type="text" class="form-control" id="lastName">
+        <input #lastnameInput type="text" class="form-control" id="lastName">
       </div>
     </div>
 
     <div class="form-group">
       <label for="phone">Phone No.</label>
-      <input type="text" class="form-control" id="phone">
+      <input #phoneInput type="text" class="form-control" id="phone">
     </div>
     <div class="form-group">
       <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email">
+      <input #emailInput type="email" class="form-control" id="email">
     </div>
     <div class="form-group">
       <label for="address">Address</label>
-      <input type="text" class="form-control" id="address">
+      <input #addressInput type="text" class="form-control" id="address">
     </div>
     <div class="form-group">
       <label for="cycle_startdate">Cycle Start Date</label>
-      <input type="date" id="cycle_startdate">
+      <input #cycleStartDateInput type="date" class="form-control" id="cycle_startdate">
     </div>
     <div class="form-group">
       <label for="cycle_enddate">Cycle End Date</label>
-      <input type="text" class="form-control" id="cycle_enddate">
+      <input #cycleEndDateInput type="date" class="form-control" id="cycle_enddate">
     </div>
 
   </form>
 
-  <button type="submit" class="btn btn-primary mb-2">Add Member</button>
+  <button type="submit" (click) ="createMember()" class="btn btn-primary mb-2">Add Member</button>
 </div>
