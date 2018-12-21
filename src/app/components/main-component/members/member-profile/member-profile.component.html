@@ -1,19 +1,61 @@
-<div class="memberItem container-fluid rounded border border-success">
+<div #message id="notification" class="col-md-8 border border-primary" style="display:none;">
+  <div class="inline-group">
+    <span> {{ messageValue }}
+      <img [src]="imageURL" height="60px" width="60px" />
+    </span>
+    <input id="close" type="button" style=" float:right;" value="X">
+  </div>
+</div>
 
-    <div class="col-md-3">
-        <img id="memberAvatar" class="rounded-circle" [src]="memberImage" style="height:160px; width:160px" alt="currMember._id image"
-        />
+<div class="memberItem container-fluid rounded border border-success">
+  <div class="container col-md-8">
+    <form>
+      <div class="form-group">
+        <img id="memberAvatar" src="assets/ic_member.png" height="80px" width="80px">
       </div>
 
-    <div class="col-md-4">
-      <span>
-        <span id="firstname">{{ sharedMember.firstName }}</span>
-        <span id="lastname"> {{ sharedMember.lastName }}</span>
-      </span>
-      <br>
-      <span id="cycleend_date">{{ sharedMember.cycleEndDate }}</span>
-      <br>
-      <span id="memberstatus"> <strong>SETTLED</strong> : {{isSettled}} </span>
-    </div>
-   
+      <div class=" form-inline form-group">
+        <div class="mr-4">
+          <label for="firstName" class="mb-2">First Name</label>
+          <label #firstnamelabel type="text" class="form-control" id="firstName"> {{ sharedMember.firstName }} </label>
+        </div>
+
+        <div>
+          <label for="lastName" class="mb-2">Last Name</label>
+          <label #lastnamelabel type="text" class="form-control" id="lastName"> {{ sharedMember.lastName }} </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone No.</label>
+        <label #phonelabel type="text" class="form-control" id="phone"> {{ sharedMember.phone }} </label>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <label #emaillabel type="email" class="form-control" id="email"> {{ sharedMember.email }} </label>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <label #addresslabel type="text" class="form-control" id="address"> {{ sharedMember.address }} </label>
+      </div>
+      <div class="form-group">
+        <label for="cycle_startdate">Cycle Start Date</label>
+        <label #cycleStartDatelabel type="date" class="form-control" id="cycle_startdate"> {{ sharedMember.cycleStartDate }} </label>
+      </div>
+      <div class="form-group">
+        <label for="cycle_enddate">Cycle End Date</label>
+        <label #cycleEndDatelabel type="date" class="form-control" id="cycle_enddate"> {{ sharedMember.cycleEndDate }} </label>
+      </div>
+
+      <div class="form-group">
+        <label for="memberSince">Cycle End Date</label>
+        <label #memberSince type="date" class="form-control" id="memberSince"> {{ sharedMember.createDate }} </label>
+      </div>
+
+    </form>
+
+    <button type="submit" (click)="editMember()" class="btn btn-primary mb-2">Edit Member</button>
+    <button type="submit" (click)="deleteMember()" class="btn btn-danger mb-2"> Delete Member</button>
   </div>
+
+</div>

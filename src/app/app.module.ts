@@ -20,9 +20,13 @@ import { UserprofileComponent } from './components/main-component/userprofile/us
 import { MemberProfileComponent } from './components/main-component/members/member-profile/member-profile.component';
 
 import { UserService } from '../shared/services/user.service';
-import { MemberService } from '../shared/services/member.service';
+import { GetMemberService } from '../shared/services/get-member.service';
 import { CurrentMemberService } from '../shared/services/current-member.service';
 import { AddMemberComponent } from './components/main-component/members/add-member/add-member.component';
+import { EditMemberComponent } from './components/main-component/members/edit-member/edit-member.component';
+import { AddMemberService } from '../shared/services/add-member.service';
+import { EditMemberService } from '../shared/services/edit-member.service';
+import { DeleteMemberService } from '../shared/services/delete-member.service';
 
 
 
@@ -32,7 +36,8 @@ const appRoutes: Routes = [
   { path: 'profile', component: UserprofileComponent },
   { path: 'about', component: AboutComponent },
   { path: 'member/addmember', component: AddMemberComponent },
-  { path: 'member-profile/:id', component: MemberProfileComponent },
+  { path: 'member/profile/:id', component: MemberProfileComponent },
+  { path: 'member/edit-profile/:id', component: EditMemberComponent },
   {
     path: 'pages', component: PagesComponent, children: [
       { path: ':id', component: PageComponent }
@@ -55,7 +60,8 @@ const appRoutes: Routes = [
     MembersComponent,
     MemberItemComponent,
     MemberProfileComponent,
-    AddMemberComponent
+    AddMemberComponent,
+    EditMemberComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, MemberService, CurrentMemberService],
+  providers: [UserService, GetMemberService, CurrentMemberService, AddMemberService, EditMemberService, DeleteMemberService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,6 +9,9 @@ import { map } from 'rxjs/operators';
 })
 export class AddMemberComponent implements OnInit {
 
+  messageValue:String = "none";
+  imageURL: String;
+
   @ViewChild('firstnameInput') firstNameInputRef: ElementRef;
   @ViewChild('lastnameInput') lastNameInputRef: ElementRef;
   @ViewChild('phoneInput') phoneInputRef: ElementRef;
@@ -34,9 +37,14 @@ export class AddMemberComponent implements OnInit {
       console.log(" subscribe Response = " + response.message);
 
       if(response.message === "New member created successfully!!"){
-
+        this.messageValue = 'Member Added Successfully!!';
+        this.imageURL= "assets/bo_tick.png";
         this.messageRef.nativeElement.style.display = '';
         this.clearAll();
+      } else {
+        this.messageValue = 'Error adding member!!';
+        this.imageURL= "assets/bo_error.png";
+        this.messageRef.nativeElement.style.display = '';
       }
 
     })

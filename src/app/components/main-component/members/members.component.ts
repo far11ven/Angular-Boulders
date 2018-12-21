@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import {MemberService} from '../../../../shared/services/member.service';
-import { map } from 'rxjs/operators';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {GetMemberService} from '../../../../shared/services/get-member.service';
 import {Member} from "../../../../shared/models/member.model";
 
 @Component({
@@ -14,8 +11,12 @@ import {Member} from "../../../../shared/models/member.model";
 export class MembersComponent implements OnInit {
 
   membersArray : Member[];
+  @ViewChild('message') messageRef: ElementRef;
 
-  constructor(private _router: Router, private http: HttpClient, private _MemberService : MemberService) {  }
+  messageValue:String = "none";
+  imageURL: String;
+
+  constructor(private _router: Router, private _MemberService : GetMemberService, private _route: ActivatedRoute) {  }
 
   ngOnInit() {
 
@@ -23,6 +24,19 @@ export class MembersComponent implements OnInit {
   }
 
   getAllMembers() : any{
+
+    let isMemberRemoved;
+
+    this._route.queryParams.subscribe(params => {
+      isMemberRemoved = params['memberRemoved'];
+      console.log("isUpdated flag ===:" + isMemberRemoved);
+    });
+
+    if (isMemberRemoved == 'true') {
+      this.messageValue = "Member removed Successfully!!";
+      this.imageURL ="assets/bo_tick.png";
+      this.messageRef.nativeElement.style.display = '';
+    }
     const username =  localStorage.getItem('loggedInUser');
 
     this._MemberService.getAllMembers(username).subscribe((response) =>{

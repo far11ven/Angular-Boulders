@@ -44,7 +44,7 @@ export class MemberItemComponent implements OnInit {
 
   openMemberProfile(currMemberObject: Member){
     this._currentMemberService.setCurrentMember(currMemberObject);
-    this._router.navigate(['/member-profile/' + currMemberObject._id]);
+    this._router.navigate(['/member/profile/' + currMemberObject._id]);
 
   }
 

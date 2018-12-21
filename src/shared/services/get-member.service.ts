@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class MemberService {
+export class GetMemberService {
   _id:String;
   orgName :String;
 

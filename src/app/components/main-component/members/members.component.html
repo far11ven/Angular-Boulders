@@ -1,5 +1,13 @@
+<div #message id="notification" class="col-md-8 border border-primary" style="display:none;">
+	<div class="inline-group">
+		<span> {{ messageValue }}
+			<img [src]="imageURL" height="60px" width="60px" />
+		</span>
+		<input id="close" type="button" style=" float:right;" value="X">
+	</div>
+</div>
 <div class="container">
-		<button type="button " id="addNewMember" class="btn btn-success btn-circle" (click)="addNewMember()">
+	<button type="button" id="addNewMember" class="btn btn-success btn-circle" (click)="addNewMember()">
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
 		 width="24px" height="24px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
 			<g id="_x38__3_">
