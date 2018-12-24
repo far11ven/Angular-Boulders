@@ -1,0 +1,54 @@
+<div #message id="notification" class="col-md-8 border border-primary" style="display:none;">
+    <div class="inline-group">
+      <span> {{ message[value] }} 
+        <img [src]="imageURL" height="60px" width="60px" />
+      </span>
+      <input id="close" type="button" style=" float:right;" [value]="X">
+    </div>
+  </div>
+  
+  <div class="memberItem container-fluid rounded border border-success">
+    <div class="container col-md-8">
+      <form>
+        <div class="form-group">
+          <img id="memberAvatar" src="assets/ic_member.png" height="80px" width="80px">
+        </div>
+  
+        <div class=" form-inline form-group">
+          <div class="mr-4">
+            <label for="firstName" class="mb-2">First Name</label>
+            <input #userFirstnameInput type="text" class="form-control" id="firstName" [value]="currentUserDetails.firstName" >
+          </div>
+  
+          <div>
+            <label for="lastName" class="mb-2">Last Name</label>
+            <input #userLastnameInput type="text" class="form-control" id="lastName" [value]="currentUserDetails.lastName" >
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="orgName"> Your Org</label>
+          <input #orgName type="text" class="form-control" id="orgName" disabled [value]="currentUserDetails.orgName" >
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input #emailInput type="email" class="form-control" id="email"  [value]="currentUserDetails.email">
+        </div>
+        <div class="form-group">
+          <label for="securityQuestion">Security Question</label>
+          <select #userSequrityQuestionInput class="form-control" id="securityQuestion">
+              <option  *ngFor="let item of securityQuestions" value="{{item}}" [selected]="item == currentUserDetails.securityQues" >{{item}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="securityAnswer">Your Answer</label>
+          <input #userSequrityAnswerInput class="form-control" id="securityAnswer" style="word-wrap: break-word;" [value]="currentUserDetails.securityValue">
+        </div>
+  
+      </form>
+  
+      <button type="submit" (click)="saveUserDetails()"  class="btn btn-primary mb-2 mr-4"> Save Changes </button>
+      <button type="submit" (click)="changePassword()" class="btn btn-secondary mb-2 mr-4"> Change Password</button>
+    </div>
+  
+  </div>

@@ -27,6 +27,8 @@ import { EditMemberComponent } from './components/main-component/members/edit-me
 import { AddMemberService } from '../shared/services/add-member.service';
 import { EditMemberService } from '../shared/services/edit-member.service';
 import { DeleteMemberService } from '../shared/services/delete-member.service';
+import { CurrentUserService } from '../shared/services/current-user.service';
+import { EditUserComponent } from './components/main-component/userprofile/edit-user/edit-user.component';
 
 
 
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: UserprofileComponent },
+  { path: 'profile/edit', component: EditUserComponent },
   { path: 'about', component: AboutComponent },
   { path: 'member/addmember', component: AddMemberComponent },
   { path: 'member/profile/:id', component: MemberProfileComponent },
@@ -61,7 +64,8 @@ const appRoutes: Routes = [
     MemberItemComponent,
     MemberProfileComponent,
     AddMemberComponent,
-    EditMemberComponent
+    EditMemberComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, GetMemberService, CurrentMemberService, AddMemberService, EditMemberService, DeleteMemberService],
+  providers: [UserService,CurrentUserService, GetMemberService, CurrentMemberService, AddMemberService, EditMemberService, DeleteMemberService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,51 @@
-<p>
-  userprofile works!
-</p>
+<div #message id="notification" class="col-md-8 border border-primary" style="display:none;">
+  <div class="inline-group">
+    <span> {{ messageValue }}
+      <img [src]="imageURL" height="60px" width="60px" />
+    </span>
+    <input id="close" type="button" style=" float:right;" value="X">
+  </div>
+</div>
+
+<div class="memberItem container-fluid rounded border border-success">
+  <div class="container col-md-8">
+    <form>
+      <div class="form-group">
+        <img id="memberAvatar" src="assets/ic_member.png" height="80px" width="80px">
+      </div>
+
+      <div class=" form-inline form-group">
+        <div class="mr-4">
+          <label for="firstName" class="mb-2">First Name</label>
+          <label #firstnameInput type="text" class="form-control" id="firstName"> {{ currentUser.firstName }} </label>
+        </div>
+
+        <div>
+          <label for="lastName" class="mb-2">Last Name</label>
+          <label #lastnameInput type="text" class="form-control" id="lastName"> {{ currentUser.lastName }} </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="orgName"> Your Org</label>
+        <label #orgName type="text" class="form-control" id="orgName"> {{ currentUser.orgName }} </label>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <label #emailInput type="email" class="form-control" id="email"> {{ currentUser.email }} </label>
+      </div>
+      <div class="form-group">
+        <label for="securityQuestion">Security Question</label>
+        <label #securityQuestion type="text" class="form-control" id="securityQuestion"> {{currentUser.securityQues}} </label>
+      </div>
+      <div class="form-group">
+        <label for="securityAnswer">Your Answer</label>
+        <label #securityAnswer type="date" class="form-control" id="securityAnswer" style="word-wrap: break-word;"> {{currentUser.securityValue}} </label>
+      </div>
+
+    </form>
+
+    <button type="submit" (click)="editUserDetails()"  class="btn btn-primary mb-2 mr-4"> Edit User </button>
+  </div>
+
+</div>

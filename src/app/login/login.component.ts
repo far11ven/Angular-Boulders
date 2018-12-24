@@ -46,10 +46,15 @@ export class LoginComponent implements OnInit {
        this.userName = userdetails.result[0].email;
 
        var orgName = userdetails.result[0].orgName;
+       var email = userdetails.result[0].email;
+       var db = userdetails.result[0].dbDetails;
 
       console.log(" email = " +  this.userName);
       localStorage.setItem('_id', userdetails.result[0]._id);
       localStorage.setItem('orgName', orgName);
+      localStorage.setItem('_id', userdetails.result[0]._id);
+      localStorage.setItem('email', email);
+      localStorage.setItem('db', db);
 
       })).subscribe((response) =>{
 

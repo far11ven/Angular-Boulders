@@ -28,6 +28,8 @@ export class NavBarComponent implements OnInit {
       localStorage.removeItem('isAuthenticated');
       localStorage.removeItem('_id');
       localStorage.removeItem('orgName');
+      localStorage.removeItem('email');
+      localStorage.removeItem('db');
     }
     console.log('in onSelect : ' + selectedTab);
 
