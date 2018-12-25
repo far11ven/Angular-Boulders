@@ -11,7 +11,9 @@ import CryptoJS from 'crypto-js';
 })
 export class EditUserComponent implements OnInit {
 
-  public currentUserDetails: Observable<any>;
+  public currentUserDetails: any ={};
+
+  public currentUserDetailsObsv: Observable<any>;
   public postBodyUserDetails: any ={};
   public postBodyUserSecurityDetails: any ={};
 
@@ -33,7 +35,8 @@ export class EditUserComponent implements OnInit {
       console.log("Getting User Details :");
       console.log(response);
 
-      this.currentUserDetails = response;
+      this.currentUserDetailsObsv = response;
+      this.currentUserDetails = this.currentUserDetailsObsv ;
 
     });
   }
