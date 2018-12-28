@@ -29,11 +29,13 @@ import { EditMemberService } from '../shared/services/edit-member.service';
 import { DeleteMemberService } from '../shared/services/delete-member.service';
 import { CurrentUserService } from '../shared/services/current-user.service';
 import { EditUserComponent } from './components/main-component/userprofile/edit-user/edit-user.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: UserprofileComponent },
   { path: 'profile/edit', component: EditUserComponent },
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
     MemberProfileComponent,
     AddMemberComponent,
     EditMemberComponent,
-    EditUserComponent
+    EditUserComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

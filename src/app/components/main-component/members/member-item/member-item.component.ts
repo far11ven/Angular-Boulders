@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import {Member} from "../../../../../shared/models/member.model";
 import {CurrentMemberService} from "../../../../../shared/services/current-member.service";
-import * as Images from "../../../../../assets/base64Images.json";
 import {Router} from '@angular/router';
 
 @Component({
@@ -13,23 +12,11 @@ export class MemberItemComponent implements OnInit {
 
   @Input() tabName: String;
   @Input() currMember: Member;
-  isSettled: boolean = true;
-  memberImage : String;
- 
+  isSettled: boolean = true; 
 
   constructor(private _router: Router, private _currentMemberService: CurrentMemberService) {}
 
   ngOnInit() {
- 
-    if (this.currMember.memberImage) {
-
-      if (this.currMember.memberImage != undefined) {
-         this.memberImage = "data:image/png;base64," + this.currMember.memberImage;
-      }
-
-    } else {
-      this.memberImage = "data:image/png;base64," + (<any>Images).memberAvatar;
-    }
 
     let currDate = new Date();
     let fetchedDate = new Date(this.currMember.cycleEndDate);

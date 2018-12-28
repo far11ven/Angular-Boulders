@@ -10,6 +10,14 @@
   <div class="container col-md-8">
     <form>
       <div class="form-group">
+
+          <label class="image-upload-container btn btn-bwm">
+              <span>Select Image</span>
+              <input #imageInput
+                     type="file"
+                     accept="image/*"
+                     (change)="getFilePath(imageInput)">
+            </label>
         <img id="memberAvatar" src="assets/ic_member.png" height="80px" width="80px">
       </div>
 

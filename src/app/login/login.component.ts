@@ -1,10 +1,8 @@
 import { Component, OnInit, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import {UserService} from '../../shared/services/user.service';
 import { map } from 'rxjs/operators';
 import CryptoJS from 'crypto-js';
-import {User} from "../../shared/models/user.model";
 
 @Component({
   selector: 'app-login',
@@ -21,19 +19,9 @@ export class LoginComponent implements OnInit {
   @ViewChild('usernameInput') usernameInputRef: ElementRef;
   @ViewChild('passwordInput') passwordInputRef: ElementRef;
 
-  constructor(private _router: Router, private _UserService : UserService) { 
-
-    console.log("Inside Constructor ==: " + localStorage.getItem('isAuthenticated'));
-    
-    if(localStorage.getItem('isAuthenticated') != 'true'){
-      this._router.navigate(['/']);
-    } else {
-      this._router.navigate(['/home']);
-    }
-  }
+  constructor(private _router: Router, private _UserService : UserService) {   }
 
   ngOnInit() {
-
   }
 
   validateUserAuthentication(){
@@ -64,6 +52,10 @@ export class LoginComponent implements OnInit {
 
     })
 
+  }
+
+  newRegistration(){
+    this._router.navigate(['/register']); 
   }
 
 }

@@ -23,6 +23,7 @@ export class EditMemberComponent implements OnInit {
   messageValue:String = "none";
   imageURL: String;
 
+  @ViewChild('memberAvatar') memberAvatarRef: ElementRef;
   @ViewChild('firstnameInput') firstNameInputRef: ElementRef;
   @ViewChild('lastnameInput') lastNameInputRef: ElementRef;
   @ViewChild('phoneInput') phoneInputRef: ElementRef;
@@ -69,6 +70,7 @@ export class EditMemberComponent implements OnInit {
 
   setMemberProfile(sharedMemberObject: Member) {
 
+    this.memberAvatarRef.nativeElement.src = sharedMemberObject.memberImage;
     this.firstNameInputRef.nativeElement.value = sharedMemberObject.firstName;
     this.lastNameInputRef.nativeElement.value = sharedMemberObject.lastName;
     this.phoneInputRef.nativeElement.value = sharedMemberObject.phone;
@@ -76,7 +78,7 @@ export class EditMemberComponent implements OnInit {
     this.addressInputRef.nativeElement.value = sharedMemberObject.address;
     this.cycleStartDateRef.nativeElement.value = sharedMemberObject.cycleStartDate;
     this.cycleEndDateRef.nativeElement.value = sharedMemberObject.cycleEndDate;
-
+  
   }
 
   saveMemberDetails() {
@@ -123,8 +125,8 @@ export class EditMemberComponent implements OnInit {
     const address = this.addressInputRef.nativeElement.value;
     const cycle_startdate = this.cycleStartDateRef.nativeElement.value;
     const cycle_enddate = this.cycleEndDateRef.nativeElement.value;
-    const member_image = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HgAGgwJ/lK3Q6wAAAABJRU5ErkJggg==";
-
+    const member_image = "";
+    
     if (currMember.firstName !== first_name) {
 
       body.firstName = first_name;

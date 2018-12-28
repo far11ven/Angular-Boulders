@@ -1,4 +1,5 @@
 <div class="container">
-            <app-login *ngIf="getAuthenticationFlag() !=  'true'" (userAuthentication) = "onValidate($event)"></app-login>
+            <app-login *ngIf="getAuthenticationFlag() != 'true' && isNewRegisteration == false" (userAuthentication) = "onValidate($event)"></app-login>
+            <app-register *ngIf="getAuthenticationFlag() != 'true' && isNewRegisteration == true"></app-register>
             <app-nav-bar *ngIf="getAuthenticationFlag() == 'true'" (tabSelection) ="onNavigate($event)"></app-nav-bar>  
 </div>

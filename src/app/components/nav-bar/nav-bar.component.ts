@@ -37,15 +37,44 @@ export class NavBarComponent implements OnInit {
 
   getRouteTitle(currentURL: String): String {
 
-    if (currentURL.includes('')) {
+    if (currentURL.includes('addmember')) {
 
       this.activeRouteTitle = 'Add New Member';
       console.log(this.activeRouteTitle);
       return this.activeRouteTitle;
 
-    } else if (currentURL.includes('')) {
+    } else if (currentURL.includes('profile/edit')) {
+
+      this.activeRouteTitle = 'Edit Your Profile';
+      console.log(this.activeRouteTitle);
+      return this.activeRouteTitle;
+
+    } else if (currentURL.includes('about')) {
+
+      this.activeRouteTitle = 'About';
+      console.log(this.activeRouteTitle);
+      return this.activeRouteTitle;
+
+    } else if (currentURL.includes('home')) {
+
+      this.activeRouteTitle = 'Your Members';
+      console.log(this.activeRouteTitle);
+      return this.activeRouteTitle;
+
+    } else if (currentURL.includes('member/profile')) {
+
+      this.activeRouteTitle = 'Member Profile';
+      console.log(this.activeRouteTitle);
+      return this.activeRouteTitle;
+
+    } else if (currentURL.includes('member/edit-profile')) {
+
+      this.activeRouteTitle = 'Edit Member Profile';
+      console.log(this.activeRouteTitle);
+      return this.activeRouteTitle;
 
     }
+
 
 
   }

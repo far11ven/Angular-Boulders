@@ -11,6 +11,7 @@ export class AddMemberComponent implements OnInit {
 
   messageValue:String = "none";
   imageURL: String;
+  member_image:String =  "";
 
   @ViewChild('firstnameInput') firstNameInputRef: ElementRef;
   @ViewChild('lastnameInput') lastNameInputRef: ElementRef;
@@ -19,16 +20,11 @@ export class AddMemberComponent implements OnInit {
   @ViewChild('addressInput') addressInputRef: ElementRef;
   @ViewChild('cycleStartDateInput') cycleStartDateRef: ElementRef;
   @ViewChild('cycleEndDateInput') cycleEndDateRef: ElementRef;
-
   @ViewChild('message') messageRef: ElementRef;
   
-
   constructor(private _AddMemberService: AddMemberService) { }
 
-  ngOnInit() {
-
-
-  }
+  ngOnInit() {}
 
   createMember() {
 
@@ -62,7 +58,7 @@ export class AddMemberComponent implements OnInit {
     const cycle_enddate = this.cycleEndDateRef.nativeElement.value;
     const parent = localStorage.getItem('_id');
     const linked_to = localStorage.getItem('orgName');
-    const member_image =  "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HgAGgwJ/lK3Q6wAAAABJRU5ErkJggg==";
+
 
     body = {
       "first_name": first_name,
@@ -74,13 +70,12 @@ export class AddMemberComponent implements OnInit {
       "cycle_enddate": cycle_enddate,
       "parent": parent,
       "linked_to": linked_to,
-      "member_image": member_image
+      "member_image": this.member_image
     };
 
     console.log('body == ', body);
 
     return body;
-
 
   }
 
@@ -94,7 +89,29 @@ export class AddMemberComponent implements OnInit {
     this.cycleStartDateRef.nativeElement.value=''; 
     this.cycleEndDateRef.nativeElement.value ='';
 
+  }
 
+
+  getFilePath(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    console.log("imageInput = ", imageInput);
+
+    reader.addEventListener('load', (event: any) => {
+
+     
+      this.member_image = event.target.result;
+
+      this.member_image = this.member_image.replace('data:image/png;base64,', '');
+
+      console.log( "rEMOVED BASE64 url : ", event.target.result);
+
+    });
+
+
+    console.log( "My Image Value 2: ", file);
+    reader.readAsDataURL(file);
   }
 
 }

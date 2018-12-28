@@ -19,4 +19,12 @@ export class GetMemberService {
     console.log('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/bouldersandroidapp-xitme/service/members/incoming_webhook/GET_Members_ByUser_ByOrg?secret=SECRET&parent=' + this._id + '&org_name=' + this.orgName);
     return this.http.get<any>('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/bouldersandroidapp-xitme/service/members/incoming_webhook/GET_Members_ByUser_ByOrg?secret=SECRET&parent=' + this._id + '&org_name=' + this.orgName);
   }
+
+  getMemberById(memberId : String){
+    return this.http.get<any>('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/bouldersandroidapp-xitme/service/members/incoming_webhook/GET_Member_ById?secret=SECRET&member_id=' + memberId);
+  }
+
+  getMemberImage(member_id : String){
+    return this.http.get<any>('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/bouldersandroidapp-xitme/service/members/incoming_webhook/GET_MemberImage_ByParentId_ByMemberId?secret=SECRET&parent_id=' + this._id + '&member_id=' + member_id);
+  }
 }

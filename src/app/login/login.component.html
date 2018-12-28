@@ -9,19 +9,20 @@
     <input #passwordInput type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
     <br>
     <div class="checkbox mb-3">
-
         <label>
-            <input type="checkbox" onclick="showPassword()"> Show Password 
-          </label>
-          <hr>
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
+            <input type="checkbox" onclick="showPassword()"> Show Password
+        </label>
+        <hr>
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="validateUserAuthentication()">Sign in</button>
+    <div>
+        <span>Don't have an account?
+            <a routerLink="/register" (click)="newRegistration()"> Register Now </a>
+        </span>
+    </div>
     <p class="mt-5 mb-3 text-muted">© Boulders 2017-2018</p>
     <hr/>
 </form>
-
-
-
