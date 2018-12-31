@@ -1,3 +1,57 @@
-<p>
-  register works!
-</p>
+<form *ngIf="isRegisterForm1Validated() == false; else registerForm2" class="form-signin">
+  <img class="mb-4" src="../../assets/BO_banner.png" alt="Boulders_banner" width="100%" height="100%">
+  <h5 class="h5 mb-3 font-weight-normal">Registeration: </h5>
+  <label>First Name*</label>
+  <input #inputFirstName type="email" id="inputFirstName" class="form-control" required="true" autofocus="">
+  <br>
+  <label>Last Name*</label>
+  <input #inputSecondName type="email" id="inputSecondName" class="form-control" required="true" autofocus="">
+  <br>
+  <label>Email address*</label>
+  <input #inputEmail type="email" id="inputEmail" class="form-control" required="true" autofocus="">
+  <br>
+  <label>Organisation*</label>
+  <input #inputOrganisation type="password" id="inputOrganisation" class="form-control" required="true">
+  <br>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="validatedForm1()"> Next </button>
+  <br>
+  <div>
+    <span>Already have an account?
+      <a href="/"> Login Now </a>
+    </span>
+  </div>
+  <p class="mt-5 mb-3 text-muted">© Boulders 2017-2018</p>
+  <hr />
+</form>
+<ng-template #registerForm2>
+  <form class="form-signin">
+    <img class="mb-4" src="../../assets/BO_banner.png" alt="Boulders_banner" width="100%" height="100%">
+    <h5 class="h5 mb-3 font-weight-normal">Setting Up Your Security: </h5>
+    <div class="form-group">
+      <label>Security Question</label>
+      <select #userSequrityQuestionInput class="form-control" id="securityQuestion">
+        <option *ngFor="let item of securityQuestions" value="{{item}}">{{item}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Your Answer*</label>
+      <input #userSequrityAnswerInput class="form-control" id="securityAnswer" required="true" style="word-wrap: break-word;">
+    </div>
+
+    <label>Password*</label>
+    <input #passwordInput type="password" id="inputPassword" class="form-control" required="true">
+    <br>
+    <label>Confirm Password*</label>
+    <input #inputConfirmPassword type="password" id="inputConfirmPassword" class="form-control" required="true">
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit"> Complete Registration </button>
+    <br>
+    <div>
+      <span>Already have an account?
+        <a href="/"> Login Now </a>
+      </span>
+    </div>
+    <p class="mt-5 mb-3 text-muted">© Boulders 2017-2018</p>
+    <hr />
+  </form>
+</ng-template>
